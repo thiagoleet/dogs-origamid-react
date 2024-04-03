@@ -22,6 +22,9 @@ const Button = styled.button`
     opacity: 0.5;
     cursor: wait;
   }
+  @media (max-width: 40rem) {
+    width: 100%;
+  }
 `;
 
 export default Button;
