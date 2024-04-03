@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import Label from "./Label";
+import Error from "../Error";
 
 import styles from "./InputField.module.css";
 
@@ -11,7 +12,7 @@ const InputField = ({ label, setValue, error, validate, ...props }) => {
         {label}
       </Label>
       <Input className={styles.input} {...props} />
-      {error && <p className={styles.erro}>{error}</p>}
+      {error && <Error className={styles.erro}>{error}</Error>}
     </div>
   );
 };

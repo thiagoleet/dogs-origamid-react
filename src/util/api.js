@@ -3,6 +3,7 @@ const api = {
   endpoints: {
     token: "/jwt-auth/v1/token",
     user: "/api/user",
+    validate: "/validate",
   },
   TOKEN_POST: (body) => {
     return {
@@ -21,6 +22,17 @@ const api = {
       url: api.url + api.endpoints.user,
       options: {
         method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      },
+    };
+  },
+  TOKEN_VALIDADE_POST: (token) => {
+    return {
+      url: api.url + api.endpoints.token + api.endpoints.validate,
+      options: {
+        method: "POST",
         headers: {
           Authorization: "Bearer " + token,
         },
