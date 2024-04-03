@@ -4,20 +4,14 @@ import Label from "./Label";
 
 import styles from "./InputField.module.css";
 
-const InputField = ({ label, type, name, onChange }) => {
+const InputField = ({ label, setValue, error, ...props }) => {
   return (
     <div className={styles.wrapper}>
-      <Label className={styles.label} htmlFor={name}>
+      <Label className={styles.label} htmlFor={props.name}>
         {label}
       </Label>
-      <Input
-        className={styles.input}
-        type={type}
-        id={name}
-        name={name}
-        onChange={onChange}
-      />
-      <p className={styles.erro}>Error</p>
+      <Input className={styles.input} {...props} />
+      {error && <p className={styles.erro}>{error}</p>}
     </div>
   );
 };
