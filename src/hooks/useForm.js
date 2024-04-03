@@ -20,12 +20,12 @@ const types = {
   },
 };
 
-const useForm = ({ type = "text", initialValue = "", validate = false }) => {
+const useForm = ({ type = "text", initialValue = "", validation = false }) => {
   const [value, setValue] = React.useState(initialValue);
   const [error, setError] = React.useState(null);
 
-  function validateField(value) {
-    if (!validate) {
+  function validate(value) {
+    if (!validation) {
       return true;
     }
     if (value.length === 0) {
@@ -42,21 +42,18 @@ const useForm = ({ type = "text", initialValue = "", validate = false }) => {
 
   function onChange({ target }) {
     if (error) {
-      validateField(target.value);
+      validate(target.value);
     }
     setValue(target.value);
   }
 
-  function onBlur() {
-    validateField(value);
-  }
-
   return {
     error,
-    onBlur,
+    onBlur: () => validate(value),
     onChange,
     setValue,
     type,
+    validate: () => validate(value),
     value,
   };
 };
