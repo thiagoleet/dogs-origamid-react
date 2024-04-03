@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import api from "../../util/api";
 
+import Button from "../../components/UI/Form/Button";
+import InputField from "../../components/UI/Form/InputField";
+
 const LoginForm = () => {
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -24,20 +27,28 @@ const LoginForm = () => {
     <section>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <input
+        <InputField
           type="text"
           value={username}
           onChange={({ target }) => setUsername(target.value)}
           placeholder="Usuário"
+          label="Usuário"
+          name="username"
         />
-        <input
+        <InputField
           type="password"
           value={password}
           onChange={({ target }) => setPassword(target.value)}
           placeholder="Senha"
+          label="Senha"
+          name="password"
         />
-        <button>Entrar</button>
+        <Button>Entrar</Button>
       </form>
+      <div>
+        <pre>{username}</pre>
+        <pre>{password}</pre>
+      </div>
       <Link to="criar">Criar</Link>
     </section>
   );
