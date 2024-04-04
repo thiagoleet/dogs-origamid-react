@@ -4,6 +4,7 @@ const api = {
     token: "/jwt-auth/v1/token",
     user: "/api/user",
     validate: "/validate",
+    photo: "/api/photo",
   },
   TOKEN_POST: (body) => {
     return {
@@ -48,6 +49,18 @@ const api = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
+      },
+    };
+  },
+  PHOTO_POST: (formData, token) => {
+    return {
+      url: api.url + api.endpoints.photo,
+      options: {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        body: formData,
       },
     };
   },
