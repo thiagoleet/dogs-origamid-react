@@ -73,6 +73,15 @@ const api = {
       },
     };
   },
+  PHOTO_GET: (id) => {
+    return {
+      url: `${api.url}${api.endpoints.photo}/${id}`,
+      options: {
+        method: "GET",
+        cache: "no-store",
+      },
+    };
+  },
 };
 
 export default api;
