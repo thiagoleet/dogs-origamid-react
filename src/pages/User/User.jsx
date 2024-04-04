@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 // components
 import UserHeader from "./components/UserHeader";
 // subpages
-import Feed from "./Feed";
+import Feed from "./Feed/Feed";
 import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
 

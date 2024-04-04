@@ -64,6 +64,15 @@ const api = {
       },
     };
   },
+  PHOTOS_GETS: ({ page, total, user }) => {
+    return {
+      url: `${api.url}${api.endpoints.photo}?_page=${page}&_total=${total}&_user=${user}`,
+      options: {
+        method: "GET",
+        cache: "no-store",
+      },
+    };
+  },
 };
 
 export default api;
