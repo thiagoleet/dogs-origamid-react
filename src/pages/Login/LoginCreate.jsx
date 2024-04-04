@@ -25,10 +25,10 @@ const LoginCreate = () => {
       password: password.value,
     });
 
-    const { response, json } = await request(url, options);
+    const { response } = await request(url, options);
 
     if (response.ok) {
-      await userLogin(username.value, password.value);
+      userLogin(username.value, password.value);
     }
   }
 
@@ -39,12 +39,14 @@ const LoginCreate = () => {
         <InputField label="Usuário" name="username" required {...username} />
         <InputField label="Email" name="email" required {...email} />
         <InputField label="Senha" name="password" required {...password} />
+
         {loading ? (
           <Button disabled>Carregando...</Button>
         ) : (
           <Button>Cadastrar</Button>
         )}
-        {error && <Error error={error} />}
+
+        {error && <Error>{error}</Error>}
       </form>
     </section>
   );
