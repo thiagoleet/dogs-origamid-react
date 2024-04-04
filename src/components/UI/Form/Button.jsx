@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
-const Button = styled.button`
+const styles = css`
   background: #fb1;
   border-radius: 0.4rem;
   border: none;
@@ -27,4 +28,12 @@ const Button = styled.button`
   }
 `;
 
-export default Button;
+const Button = styled.button`
+  ${styles}
+`;
+
+const LinkButton = styled(Link)`
+  ${styles}
+`;
+
+export { Button, LinkButton };

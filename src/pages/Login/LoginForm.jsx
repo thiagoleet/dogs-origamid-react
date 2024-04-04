@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { UserContext } from "../../UserContext";
-import Button from "../../components/UI/Form/Button";
+import { Button, LinkButton } from "../../components/UI/Form/Button";
 import Error from "../../components/UI/Error";
 import InputField from "../../components/UI/Form/InputField";
 import useForm from "../../hooks/useForm";
@@ -11,7 +11,6 @@ import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const { userLogin, error, loading } = React.useContext(UserContext);
-  const naviga = useNavigate();
 
   const username = useForm({
     type: "text",
@@ -28,10 +27,6 @@ const LoginForm = () => {
     if (username.validate() && password.validate()) {
       await userLogin(username.value, password.value);
     }
-  }
-
-  function handleSignUp() {
-    naviga("/login/criar");
   }
 
   return (
@@ -67,9 +62,9 @@ const LoginForm = () => {
       <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
         <p>Ainda não possui conta? Cadastre-se no site.</p>
-        <Button type="button" className={styles.criar} onClick={handleSignUp}>
+        <LinkButton to="criar" className={styles.criar}>
           Criar
-        </Button>
+        </LinkButton>
       </div>
     </section>
   );
