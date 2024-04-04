@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 // context
-import { UserStorage } from "./UserContext";
+import { UserStorage } from "./context/UserContext";
 
 // components
 import Header from "./components/Header/Header";

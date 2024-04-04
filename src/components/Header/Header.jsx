@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Header.module.css";
 import { Link } from "react-router-dom";
 import DogsIcon from "../../assets/dogs.svg?react";
-import { UserContext } from "../../UserContext";
+import { UserContext } from "../../context/UserContext";
 
 const Header = () => {
   const { data, userLogout } = React.useContext(UserContext);
