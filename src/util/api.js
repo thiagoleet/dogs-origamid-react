@@ -1,10 +1,11 @@
 const api = {
   url: "https://dogsapi.origamid.dev/json",
   endpoints: {
+    comment: "/api/comment",
+    photo: "/api/photo",
     token: "/jwt-auth/v1/token",
     user: "/api/user",
     validate: "/validate",
-    photo: "/api/photo",
   },
   TOKEN_POST: (body) => {
     return {
@@ -79,6 +80,20 @@ const api = {
       options: {
         method: "GET",
         cache: "no-store",
+      },
+    };
+  },
+  COMMENT_POST: (id, body) => {
+    const token = window.localStorage.getItem("token");
+    return {
+      url: `${api.url}${api.endpoints.comment}/${id}`,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(body),
       },
     };
   },
