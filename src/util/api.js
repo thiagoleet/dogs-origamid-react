@@ -97,6 +97,18 @@ const api = {
       },
     };
   },
+  PHOTO_DELETE: (id) => {
+    const token = window.localStorage.getItem("token");
+    return {
+      url: `${api.url}${api.endpoints.photo}/${id}`,
+      options: {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      },
+    };
+  },
 };
 
 export default api;
