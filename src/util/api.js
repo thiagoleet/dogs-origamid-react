@@ -39,6 +39,18 @@ const api = {
       },
     };
   },
+  USER_POST: (body) => {
+    return {
+      url: api.url + api.endpoints.user,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      },
+    };
+  },
 };
 
 export default api;
