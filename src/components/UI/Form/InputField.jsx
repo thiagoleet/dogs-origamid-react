@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import Label from "./Label";
-import Error from "../Error";
+import Error from "../helpers/Error";
 import FormControl from "./FormControl";
 
 const InputField = ({ label, setValue, error, validate, ...props }) => {

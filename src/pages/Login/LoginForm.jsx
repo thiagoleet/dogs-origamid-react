@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { UserContext } from "../../UserContext";
-import { Button, LinkButton } from "../../components/UI/Form/Button";
-import Error from "../../components/UI/Error";
-import InputField from "../../components/UI/Form/InputField";
+import { Button, LinkButton } from "../../components/UI/form/Button";
+import Error from "../../components/UI/helpers/Error";
+import InputField from "../../components/UI/form/InputField";
 import useForm from "../../hooks/useForm";
-import Title from "../../components/UI/Title";
+import Title from "../../components/UI/helpers/Title";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
