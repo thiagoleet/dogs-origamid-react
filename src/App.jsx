@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import User from "./pages/User/User";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
+import Photo from "./pages/Photo/Photo";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="/foto/:id" element={<Photo />} />
           </Routes>
           <Footer />
         </UserStorage>
