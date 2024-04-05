@@ -3,7 +3,7 @@ import styles from "./FeedModal.module.css";
 import useFetch from "../../../../hooks/useFetch";
 import api from "../../../../util/api";
 import Error from "../../../../components/UI/helpers/Error";
-import Loading from "../../../../components/UI/helpers/Loading";
+import Loading from "../../../../components/UI/helpers/Loading/Loading";
 import PhotoContent from "../../../../components/Photo/PhotoContent";
 
 const FeedModal = ({ photo, setModalPhoto }) => {
