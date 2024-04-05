@@ -5,6 +5,7 @@ import Title from "../UI/helpers/Title";
 import PhotoComments from "./PhotoComments";
 import { UserContext } from "../../context/UserContext";
 import PhotoDelete from "./PhotoDelete";
+import Image from "../UI/helpers/Image/Image";
 
 const PhotoContent = ({ data }) => {
   const user = React.useContext(UserContext);
@@ -13,7 +14,7 @@ const PhotoContent = ({ data }) => {
   return (
     <div className={styles.photo}>
       <div className={styles.img}>
-        <img src={photo.src} alt={photo.title} />
+        <Image src={photo.src} alt={photo.title} />
       </div>
       <div className={styles.details}>
         <div>
