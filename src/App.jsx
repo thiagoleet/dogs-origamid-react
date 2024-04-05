@@ -13,6 +13,7 @@ import Login from "./pages/Login/Login";
 import User from "./pages/User/User";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
 import Photo from "./pages/Photo/Photo";
+import UserProfile from "./pages/User/UserProfile";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
               }
             />
             <Route path="/foto/:id" element={<Photo />} />
+            <Route path="/perfil/:user" element={<UserProfile />} />
           </Routes>
           <Footer />
         </UserStorage>
