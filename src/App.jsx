@@ -14,6 +14,7 @@ import User from "./pages/User/User";
 import ProtectedRoute from "./components/Helpers/ProtectedRoute";
 import Photo from "./pages/Photo/Photo";
 import UserProfile from "./pages/User/UserProfile";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             />
             <Route path="/foto/:id" element={<Photo />} />
             <Route path="/perfil/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
         </UserStorage>
