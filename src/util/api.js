@@ -8,6 +8,7 @@ const api = {
     validate: "/validate",
     passowordLost: "/api/password/lost",
     passowordReset: "/api/password/reset",
+    stats: "/api/stats",
   },
   TOKEN_POST: (body) => {
     return {
@@ -132,6 +133,18 @@ const api = {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
+      },
+    };
+  },
+  STATS_GET: () => {
+    const token = window.localStorage.getItem("token");
+    return {
+      url: api.url + api.endpoints.stats,
+      options: {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       },
     };
   },
