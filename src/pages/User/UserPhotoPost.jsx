@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./UserPhotoPost.module.css";
 import InputField from "../../components/UI/form/InputField";
 import FormControl from "../../components/UI/form/FormControl";
-import { Button } from "../../components/UI/form/Button";
+import Button from "../../components/UI/form/Button";
 import Error from "../../components/UI/helpers/Error";
 import useForm from "../../hooks/useForm";
 import useFetch from "../../hooks/useFetch";

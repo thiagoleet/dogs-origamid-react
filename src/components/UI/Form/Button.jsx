@@ -31,8 +31,8 @@ const Button = styled.button`
   ${styles}
 `;
 
-const LinkButton = styled(Link)`
+export const LinkButton = styled(Link)`
   ${styles}
 `;
 
-export { Button, LinkButton };
+export default Button;

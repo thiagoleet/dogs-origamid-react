@@ -6,6 +6,7 @@ const api = {
     token: "/jwt-auth/v1/token",
     user: "/api/user",
     validate: "/validate",
+    passowordLost: "/api/password/lost",
   },
   TOKEN_POST: (body) => {
     return {
@@ -106,6 +107,18 @@ const api = {
         headers: {
           Authorization: "Bearer " + token,
         },
+      },
+    };
+  },
+  PASSWORD_LOST: (body) => {
+    return {
+      url: api.url + api.endpoints.passowordLost,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
       },
     };
   },
