@@ -7,6 +7,7 @@ const api = {
     user: "/api/user",
     validate: "/validate",
     passowordLost: "/api/password/lost",
+    passowordReset: "/api/password/reset",
   },
   TOKEN_POST: (body) => {
     return {
@@ -113,6 +114,18 @@ const api = {
   PASSWORD_LOST: (body) => {
     return {
       url: api.url + api.endpoints.passowordLost,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      },
+    };
+  },
+  PASSWORD_RESET: (body) => {
+    return {
+      url: api.url + api.endpoints.passowordReset,
       options: {
         method: "POST",
         headers: {
