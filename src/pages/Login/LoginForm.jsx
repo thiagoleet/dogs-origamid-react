@@ -53,7 +53,7 @@ const LoginForm = () => {
           <Button>Entrar</Button>
         )}
 
-        {error && <Error>{error}</Error>}
+        {error && <Error>Dados incorretos.</Error>}
       </form>
 
       <Link className={styles.perdeu} to="perdeu">

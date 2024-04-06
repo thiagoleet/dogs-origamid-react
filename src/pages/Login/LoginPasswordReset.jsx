@@ -47,7 +47,7 @@ const LoginPasswordReset = () => {
   }, []);
 
   return (
-    <section className="container mainContainer">
+    <section className="container mainContainer animeLeft">
       <Title>Resete a senha</Title>
       {data ? (
         <Success>{data}</Success>
