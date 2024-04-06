@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Title from "../../../components/UI/helpers/Title";
+import Head from "../../../components/Helpers/Head";
 import UserHeaderNav from "./UserHeaderNav";
 import styles from "./UserHeader.module.css";
 
@@ -23,10 +24,13 @@ const UserHeader = () => {
   }, [location]);
 
   return (
-    <header className={styles.header}>
-      <Title>{title}</Title>
-      <UserHeaderNav />
-    </header>
+    <>
+      <Head title={title} />
+      <header className={styles.header}>
+        <Title>{title}</Title>
+        <UserHeaderNav />
+      </header>
+    </>
   );
 };
 

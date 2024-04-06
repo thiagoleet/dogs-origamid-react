@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Head from "../../components/Helpers/Head";
 import NotFound from "../NotFound";
 import LoginForm from "./LoginForm";
 import LoginCreate from "./LoginCreate";
@@ -17,6 +18,7 @@ const Login = () => {
 
   return (
     <section className={styles.login}>
+      <Head title="Login" />
       <div className={styles.forms}>
         <Routes>
           <Route path="" element={<LoginForm />} />

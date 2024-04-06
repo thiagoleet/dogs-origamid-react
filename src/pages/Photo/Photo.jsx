@@ -4,6 +4,7 @@ import useFetch from "../../hooks/useFetch";
 import api from "../../util/api";
 import Error from "../../components/UI/helpers/Error";
 import Loading from "../../components/UI/helpers/Loading/Loading";
+import Head from "../../components/Helpers/Head";
 import PhotoContent from "../../components/Photo/PhotoContent";
 
 const Photo = () => {
@@ -24,6 +25,7 @@ const Photo = () => {
   if (data) {
     return (
       <section className="container mainContainer">
+        <Head title={data.photo.title} />
         <PhotoContent data={data} single />
       </section>
     );
