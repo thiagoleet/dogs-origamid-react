@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../../components/UI/helpers/Title";
-import InputField from "../../components/UI/form/InputField";
-import Button from "../../components/UI/form/Button";
+import InputField from "../../components/UI/Form/InputField";
+import Button from "../../components/UI/Form/Button";
 import useForm from "../../hooks/useForm";
 import api from "../../util/api";
 import { UserContext } from "../../context/UserContext";
