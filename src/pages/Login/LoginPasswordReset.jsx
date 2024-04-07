@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../../components/UI/helpers/Title";
-import InputField from "../../components/UI/form/InputField";
-import Button from "../../components/UI/form/Button";
+import InputField from "../../components/UI/Form/InputField";
+import Button from "../../components/UI/Form/Button";
 import useForm from "../../hooks/useForm";
 import useFetch from "../../hooks/useFetch";
 import api from "../../util/api";
