@@ -19,6 +19,9 @@
       ],
       "@util/*": [
         "src/util/*"
+      ],
+      "@features/*": [
+        "src/store/features/*"
       ]
     }
   }
