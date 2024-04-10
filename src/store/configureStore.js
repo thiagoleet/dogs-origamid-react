@@ -1,15 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-
-const contador = () => 0;
-
+import logger from "./middleware/logger";
+import photo from "./photo/reducer";
 const reducer = combineReducers({
-  contador,
+  photo,
 });
 
 const store = configureStore({
   reducer,
-  // middleware: (getDefaultMiddleware) =>
-  //   getDefaultMiddleware({ serializableCheck: false }),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
