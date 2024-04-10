@@ -1,13 +1,14 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPhoto } from "../../../../store/photo/reducer";
 import styles from "./FeedModal.module.css";
-import useFetch from "../../../../hooks/useFetch";
-import api from "../../../../util/api";
 import Error from "../../../../components/UI/helpers/Error";
 import Loading from "../../../../components/UI/helpers/Loading/Loading";
 import PhotoContent from "../../../../components/Photo/PhotoContent";
 
 const FeedModal = ({ photo, setModalPhoto }) => {
-  const { data, error, loading, request } = useFetch();
+  const { data, loading, error } = useSelector((state) => state.photo);
+  const dispatch = useDispatch();
 
   function handleOutsideClick(event) {
     if (event.target === event.currentTarget) {
@@ -16,9 +17,8 @@ const FeedModal = ({ photo, setModalPhoto }) => {
   }
 
   React.useEffect(() => {
-    const { url, options } = api.PHOTO_GET(photo.id);
-    request(url, options);
-  }, [photo, request]);
+    dispatch(fetchPhoto(photo.id));
+  }, [photo, dispatch]);
 
   return (
     <div className={styles.modal} onClick={handleOutsideClick}>
