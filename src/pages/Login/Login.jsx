@@ -9,9 +9,14 @@ import LoginCreate from "./LoginCreate";
 import LoginPasswordLost from "./LoginPasswordLost";
 import LoginPasswordReset from "./LoginPasswordReset";
 import styles from "./Login.module.css";
+import Loading from "@/components/UI/helpers/Loading/Loading";
 
 const Login = () => {
-  const { data } = useSelector((state) => state.user);
+  const { data, loading } = useSelector((state) => state.user);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (data) {
     return <Navigate to="/conta" />;

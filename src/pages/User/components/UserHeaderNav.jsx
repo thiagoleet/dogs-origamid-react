@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { UserContext } from "../../../context/UserContext";
+import { useDispatch } from "react-redux";
+import { userLogout } from "@features/user/reducer";
 import useMedia from "@hooks/useMedia";
 import styles from "./UserHeaderNav.module.css";
 
@@ -18,14 +19,14 @@ const texts = {
 };
 
 const UserHeaderNav = () => {
-  const { userLogout } = React.useContext(UserContext);
+  const dispatch = useDispatch();
   const [mobileMenu, setMobileMenu] = React.useState(false);
   const mobile = useMedia("(max-width: 40rem)");
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   function handleLogout() {
-    userLogout();
+    dispatch(userLogout());
     navigate("/login");
   }
 
