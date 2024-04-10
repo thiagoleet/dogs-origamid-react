@@ -1,14 +1,14 @@
 import React from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../context/UserContext";
-import useMedia from "../../../hooks/useMedia";
+import useMedia from "@hooks/useMedia";
 import styles from "./UserHeaderNav.module.css";
 
 // icons
-import MinhasFotosSvg from "../../../assets/feed.svg?react";
-import EstatisticasSvg from "../../../assets/estatisticas.svg?react";
-import AdicionarFotoSvg from "../../../assets/adicionar.svg?react";
-import SairSvg from "../../../assets/sair.svg?react";
+import MinhasFotosSvg from "@assets/feed.svg?react";
+import EstatisticasSvg from "@assets/estatisticas.svg?react";
+import AdicionarFotoSvg from "@assets/adicionar.svg?react";
+import SairSvg from "@assets/sair.svg?react";
 
 const texts = {
   feed: "Minhas Fotos",

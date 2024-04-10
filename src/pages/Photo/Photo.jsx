@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPhoto } from "../../store/photo/reducer";
-import Error from "../../components/UI/helpers/Error";
-import Loading from "../../components/UI/helpers/Loading/Loading";
-import Head from "../../components/Helpers/Head";
-import PhotoContent from "../../components/Photo/PhotoContent";
+import { fetchPhoto } from "@store/reducers/photo/reducer";
+import Error from "@components/UI/helpers/Error";
+import Loading from "@components/UI/helpers/Loading/Loading";
+import Head from "@components/Helpers/Head";
+import PhotoContent from "@components/Photo/PhotoContent";
 
 const Photo = () => {
   const { id } = useParams();

@@ -1,12 +1,12 @@
 import React from "react";
-import Title from "../../components/UI/helpers/Title";
-import InputField from "../../components/UI/Form/InputField";
-import Button from "../../components/UI/Form/Button";
-import useForm from "../../hooks/useForm";
-import api from "../../util/api";
+import Title from "@components/UI/helpers/Title";
+import InputField from "@components/UI/Form/InputField";
+import Button from "@components/UI/Form/Button";
+import useForm from "@hooks/useForm";
+import useFetch from "@hooks/useFetch";
+import api from "@util/api";
 import { UserContext } from "../../context/UserContext";
-import useFetch from "../../hooks/useFetch";
-import Error from "../../components/UI/helpers/Error";
+import Error from "@components/UI/helpers/Error";
 
 const LoginCreate = () => {
   const username = useForm({ type: "text", validation: true });

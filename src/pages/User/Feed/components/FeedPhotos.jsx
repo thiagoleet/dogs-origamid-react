@@ -1,9 +1,9 @@
 import React from "react";
 import FeedPhotosItem from "./FeedPhotosItem";
-import useFetch from "../../../../hooks/useFetch";
-import api from "../../../../util/api";
-import Error from "../../../../components/UI/helpers/Error";
-import Loading from "../../../../components/UI/helpers/Loading/Loading";
+import useFetch from "@hooks/useFetch";
+import api from "@util/api";
+import Error from "@components/UI/helpers/Error";
+import Loading from "@components/UI/helpers/Loading/Loading";
 import styles from "./FeedPhotos.module.css";
 
 const TOTAL_PER_PAGE = 6;

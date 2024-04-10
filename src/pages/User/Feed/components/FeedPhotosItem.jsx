@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./FeedPhotosItem.module.css";
-import Image from "../../../../components/UI/helpers/Image/Image";
+import Image from "@components/UI/helpers/Image/Image";
 
 const FeedPhotosItem = ({ photo, setModalPhoto }) => {
   function handleClick() {

@@ -5,16 +5,16 @@ import "./App.css";
 import { UserStorage } from "./context/UserContext";
 
 // components
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import Header from "@components/Header/Header";
+import Footer from "@components/Footer/Footer";
 // pages
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import User from "./pages/User/User";
-import ProtectedRoute from "./components/Helpers/ProtectedRoute";
-import Photo from "./pages/Photo/Photo";
-import UserProfile from "./pages/User/UserProfile";
-import NotFound from "./pages/NotFound";
+import Home from "@pages/Home/Home";
+import Login from "@pages/Login/Login";
+import User from "@pages/User/User";
+import ProtectedRoute from "@components/Helpers/ProtectedRoute";
+import Photo from "@pages/Photo/Photo";
+import UserProfile from "@pages/User/UserProfile";
+import NotFound from "@pages/NotFound";
 
 const App = () => {
   return (

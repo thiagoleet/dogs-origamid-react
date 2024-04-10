@@ -2,13 +2,12 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 // components
 import UserHeader from "./components/UserHeader";
-import Head from "../../components/Helpers/Head";
 // subpages
 import Feed from "./Feed/Feed";
 import UserPhotoPost from "./UserPhotoPost";
 import UserStats from "./UserStats";
 import { UserContext } from "../../context/UserContext";
-import NotFound from "../NotFound";
+import NotFound from "@pages/NotFound";
 
 const User = () => {
   const { data } = React.useContext(UserContext);

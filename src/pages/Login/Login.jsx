@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Head from "../../components/Helpers/Head";
-import NotFound from "../NotFound";
+import Head from "@components/Helpers/Head";
+import NotFound from "@pages/NotFound";
 import LoginForm from "./LoginForm";
 import LoginCreate from "./LoginCreate";
 import LoginPasswordLost from "./LoginPasswordLost";

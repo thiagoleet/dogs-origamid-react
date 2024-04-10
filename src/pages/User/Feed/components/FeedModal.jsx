@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPhoto } from "../../../../store/photo/reducer";
+import { fetchPhoto } from "@store/reducers/photo/reducer";
 import styles from "./FeedModal.module.css";
-import Error from "../../../../components/UI/helpers/Error";
-import Loading from "../../../../components/UI/helpers/Loading/Loading";
-import PhotoContent from "../../../../components/Photo/PhotoContent";
+import Error from "@components/UI/helpers/Error";
+import Loading from "@components/UI/helpers/Loading/Loading";
+import PhotoContent from "@components/Photo/PhotoContent";
 
 const FeedModal = ({ photo, setModalPhoto }) => {
   const { data, loading, error } = useSelector((state) => state.photo);

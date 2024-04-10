@@ -1,5 +1,5 @@
 import React from "react";
-import Title from "../components/UI/helpers/Title";
+import Title from "@components/UI/helpers/Title";
 
 const NotFound = () => {
   return (
