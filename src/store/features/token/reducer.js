@@ -3,12 +3,6 @@ import api from "../../../util/api";
 
 const slice = createAsyncSlice({
   name: "token",
-  initialState: {
-    data: null,
-    loading: false,
-    error: null,
-    logged: false,
-  },
   reducers: {
     userLogout(state) {
       state.data = null;

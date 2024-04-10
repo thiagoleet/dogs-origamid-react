@@ -1,8 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import logger from "./middleware/logger";
-import slice from "./features/photo/reducer";
+import photo from "./features/photo/reducer";
+import token from "./features/token/reducer";
+import user from "./features/user/reducer";
+
 const reducer = combineReducers({
-  photo: slice,
+  photo,
+  user,
+  token,
 });
 
 const store = configureStore({

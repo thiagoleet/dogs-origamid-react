@@ -1,18 +1,19 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import Head from "@components/Helpers/Head";
 import NotFound from "@pages/NotFound";
 import LoginForm from "./LoginForm";
 import LoginCreate from "./LoginCreate";
 import LoginPasswordLost from "./LoginPasswordLost";
 import LoginPasswordReset from "./LoginPasswordReset";
-import { UserContext } from "../../context/UserContext";
 import styles from "./Login.module.css";
 
 const Login = () => {
-  const { login } = React.useContext(UserContext);
+  const { data } = useSelector((state) => state.user);
 
-  if (login) {
+  if (data) {
     return <Navigate to="/conta" />;
   }
 
