@@ -1,24 +1,27 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./FeedModal.module.css";
-import useFetch from "../../../../hooks/useFetch";
-import api from "../../../../util/api";
-import Error from "../../../../components/UI/helpers/Error";
-import Loading from "../../../../components/UI/helpers/Loading/Loading";
-import PhotoContent from "../../../../components/Photo/PhotoContent";
+import Error from "@components/UI/helpers/Error";
+import Loading from "@components/UI/helpers/Loading/Loading";
+import PhotoContent from "@components/Photo/PhotoContent";
+import { closeModal } from "@features/ui/reducer";
 
-const FeedModal = ({ photo, setModalPhoto }) => {
-  const { data, error, loading, request } = useFetch();
+const FeedModal = () => {
+  const { data, loading, error } = useSelector((state) => state.photo);
+  const { modal } = useSelector((state) => state.ui);
+  const dispatch = useDispatch();
 
   function handleOutsideClick(event) {
     if (event.target === event.currentTarget) {
-      setModalPhoto(null);
+      dispatch(closeModal());
     }
   }
 
   React.useEffect(() => {
-    const { url, options } = api.PHOTO_GET(photo.id);
-    request(url, options);
-  }, [photo, request]);
+    dispatch(closeModal());
+  }, [dispatch]);
+
+  if (!modal) return null;
 
   return (
     <div className={styles.modal} onClick={handleOutsideClick}>

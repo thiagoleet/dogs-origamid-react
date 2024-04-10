@@ -1,16 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
-import { UserContext } from "../../context/UserContext";
-import Button, { LinkButton } from "../../components/UI/Form/Button";
-import Error from "../../components/UI/helpers/Error";
-import InputField from "../../components/UI/Form/InputField";
-import useForm from "../../hooks/useForm";
-import Title from "../../components/UI/helpers/Title";
+import Button, { LinkButton } from "@components/UI/Form/Button";
+import Error from "@components/UI/helpers/Error";
+import InputField from "@components/UI/Form/InputField";
+import Title from "@components/UI/helpers/Title";
+import useForm from "@hooks/useForm";
+import { userLogin } from "@features/user/reducer";
 import styles from "./LoginForm.module.css";
 
 const LoginForm = () => {
-  const { userLogin, error, loading } = React.useContext(UserContext);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.token);
+  const user = useSelector((state) => state.user);
+  const loading = token.loading || user.loading;
+  const error = token.error || user.error;
 
   const username = useForm({
     type: "text",
@@ -25,7 +30,9 @@ const LoginForm = () => {
     event.preventDefault();
 
     if (username.validate() && password.validate()) {
-      await userLogin(username.value, password.value);
+      await dispatch(
+        userLogin({ username: username.value, password: password.value })
+      );
     }
   }
 

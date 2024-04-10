@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./UserPhotoPost.module.css";
-import InputField from "../../components/UI/Form/InputField";
-import FormControl from "../../components/UI/Form/FormControl";
-import Button from "../../components/UI/Form/Button";
-import Error from "../../components/UI/helpers/Error";
-import useForm from "../../hooks/useForm";
-import useFetch from "../../hooks/useFetch";
-import api from "../../util/api";
+import InputField from "@components/UI/Form/InputField";
+import FormControl from "@components/UI/Form/FormControl";
+import Button from "@components/UI/Form/Button";
+import Error from "@components/UI/helpers/Error";
+import useForm from "@hooks/useForm";
+import useFetch from "@hooks/useFetch";
+import api from "@util/api";
 
 const UserPhotoPost = () => {
   const nome = useForm({ type: "text" });

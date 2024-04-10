@@ -1,20 +1,20 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import api from "../../util/api";
-import Error from "../../components/UI/helpers/Error";
-import Loading from "../../components/UI/helpers/Loading/Loading";
-import Head from "../../components/Helpers/Head";
-import PhotoContent from "../../components/Photo/PhotoContent";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPhoto } from "@features/photo/reducer";
+import Error from "@components/UI/helpers/Error";
+import Loading from "@components/UI/helpers/Loading/Loading";
+import Head from "@components/Helpers/Head";
+import PhotoContent from "@components/Photo/PhotoContent";
 
 const Photo = () => {
   const { id } = useParams();
-  const { data, loading, error, request } = useFetch();
+  const { data, loading, error } = useSelector((state) => state.photo);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
-    const { url, options } = api.PHOTO_GET(id);
-    request(url, options);
-  }, [id, request]);
+    dispatch(fetchPhoto(id));
+  }, [id, dispatch]);
 
   if (error) {
     return <Error>{error}</Error>;

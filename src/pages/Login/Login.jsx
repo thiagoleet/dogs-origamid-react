@@ -1,18 +1,24 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import Head from "../../components/Helpers/Head";
-import NotFound from "../NotFound";
+import { useSelector } from "react-redux";
+
+import Head from "@components/Helpers/Head";
+import NotFound from "@pages/NotFound";
 import LoginForm from "./LoginForm";
 import LoginCreate from "./LoginCreate";
 import LoginPasswordLost from "./LoginPasswordLost";
 import LoginPasswordReset from "./LoginPasswordReset";
-import { UserContext } from "../../context/UserContext";
 import styles from "./Login.module.css";
+import Loading from "@/components/UI/helpers/Loading/Loading";
 
 const Login = () => {
-  const { login } = React.useContext(UserContext);
+  const { data, loading } = useSelector((state) => state.user);
 
-  if (login) {
+  if (loading) {
+    return <Loading />;
+  }
+
+  if (data) {
     return <Navigate to="/conta" />;
   }
 
