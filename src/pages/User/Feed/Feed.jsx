@@ -11,7 +11,6 @@ import Error from "@/components/UI/helpers/Error";
 const Feed = ({ user }) => {
   const dispatch = useDispatch();
   const { infinite, loading, list, error } = useSelector((state) => state.feed);
-  const [modalPhoto, setModalPhoto] = React.useState(null);
 
   React.useEffect(() => {
     dispatch(resetFeedState());
@@ -47,11 +46,9 @@ const Feed = ({ user }) => {
 
   return (
     <div>
-      {modalPhoto && (
-        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
-      )}
+      <FeedModal />
 
-      {list.length > 0 && <FeedPhotos setModalPhoto={setModalPhoto} />}
+      {list.length > 0 && <FeedPhotos />}
       {loading && <Loading />}
       {error && <Error>{error}</Error>}
     </div>
