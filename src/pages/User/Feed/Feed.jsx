@@ -1,12 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useSelector, useDispatch } from "react-redux";
+import { loadNewPhotos, resetFeedState } from "@features/feed/reducer";
+
 import FeedModal from "./components/FeedModal";
 import FeedPhotos from "./components/FeedPhotos";
+import Loading from "@/components/UI/helpers/Loading/Loading";
+import Error from "@/components/UI/helpers/Error";
 
 const Feed = ({ user }) => {
+  const dispatch = useDispatch();
+  const { infinite, loading, list, error } = useSelector((state) => state.feed);
   const [modalPhoto, setModalPhoto] = React.useState(null);
-  const [pages, setPages] = React.useState([1]);
-  const [infinite, setInfinite] = React.useState(true);
+
+  React.useEffect(() => {
+    dispatch(resetFeedState());
+    dispatch(loadNewPhotos({ user, total: 6 }));
+  }, [dispatch, user]);
 
   React.useEffect(() => {
     let wait = false;
@@ -18,7 +28,7 @@ const Feed = ({ user }) => {
 
         if (scroll > height * 0.75 && !wait) {
           wait = true;
-          setPages((pages) => [...pages, pages.length + 1]);
+          dispatch(loadNewPhotos({ user, total: 6 }));
           setTimeout(() => {
             wait = false;
           }, 500);
@@ -33,22 +43,17 @@ const Feed = ({ user }) => {
       window.removeEventListener("wheel", infiniteScroll);
       window.removeEventListener("scroll", infiniteScroll);
     };
-  }, [infinite]);
+  }, [infinite, dispatch, user]);
 
   return (
     <div>
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
-      {pages.map((page) => (
-        <FeedPhotos
-          key={"page_" + page}
-          page={page}
-          user={user}
-          setModalPhoto={setModalPhoto}
-          setInfinte={setInfinite}
-        />
-      ))}
+
+      {list.length > 0 && <FeedPhotos setModalPhoto={setModalPhoto} />}
+      {loading && <Loading />}
+      {error && <Error>{error}</Error>}
     </div>
   );
 };
